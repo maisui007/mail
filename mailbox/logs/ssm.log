@@ -1,0 +1,24 @@
+[INFO] [2016-08-01 16:40:10][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2016-08-01 16:40:10][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Mon Aug 01 16:40:10 CST 2016]; root of context hierarchy
+[INFO] [2016-08-01 16:40:10][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-config.xml]
+[INFO] [2016-08-01 16:40:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [velocity.xml]
+[INFO] [2016-08-01 16:40:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2016-08-01 16:40:13][org.springframework.web.servlet.view.velocity.VelocityConfigurer]Loading Velocity config from [class path resource [velocity.properties]]
+[INFO] [2016-08-01 16:40:13][org.springframework.web.servlet.view.velocity.VelocityConfigurer]ClasspathResourceLoader with name 'springMacro' added to configured VelocityEngine
+[INFO] [2016-08-01 16:40:13][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 3261 ms
+[INFO] [2016-08-01 16:40:13][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+[INFO] [2016-08-01 16:40:13][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Aug 01 16:40:13 CST 2016]; parent: Root WebApplicationContext
+[INFO] [2016-08-01 16:40:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2016-08-01 16:40:14][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 292 ms
+[INFO] [2016-08-01 16:40:35][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2016-08-01 16:40:35][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Mon Aug 01 16:40:35 CST 2016]; root of context hierarchy
+[INFO] [2016-08-01 16:40:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-config.xml]
+[INFO] [2016-08-01 16:40:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [velocity.xml]
+[INFO] [2016-08-01 16:40:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2016-08-01 16:40:36][org.springframework.web.servlet.view.velocity.VelocityConfigurer]Loading Velocity config from [class path resource [velocity.properties]]
+[INFO] [2016-08-01 16:40:36][org.springframework.web.servlet.view.velocity.VelocityConfigurer]ClasspathResourceLoader with name 'springMacro' added to configured VelocityEngine
+[INFO] [2016-08-01 16:40:36][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 405 ms
+[INFO] [2016-08-01 16:40:36][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+[INFO] [2016-08-01 16:40:36][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Mon Aug 01 16:40:36 CST 2016]; parent: Root WebApplicationContext
+[INFO] [2016-08-01 16:40:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2016-08-01 16:40:36][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 101 ms
