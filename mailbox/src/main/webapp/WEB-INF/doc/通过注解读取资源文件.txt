@@ -1,0 +1,5 @@
+1.首先把资源文件交给容器管理
+理论如下的方式进行管理权限移交
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:/application-dev.properties" />
+	通过
+	@Value("参数名称进行注入")
