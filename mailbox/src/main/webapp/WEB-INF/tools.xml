@@ -37,6 +37,7 @@
         <tool class="org.apache.velocity.tools.generic.XmlTool"/>
     </toolbox>
     <toolbox scope="request">
+        <tool class="com.velocity.sims.velocity.SIMS_VelocityTool"/>
         <tool class="org.apache.velocity.tools.generic.ContextTool"/>
         <tool class="org.apache.velocity.tools.generic.LinkTool"/>
         <tool class="org.apache.velocity.tools.generic.LoopTool"/>

@@ -1,5 +1,3 @@
-<html>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html>
+#set($page_title="Layout Test")
+Hello Velocity Layout!
+$sims.data();
