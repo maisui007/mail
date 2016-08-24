@@ -1,0 +1,9 @@
+<html >
+<head >
+    <title>$!page_title</title>
+</head>
+<body>
+##$screen_content便是VelocityLayoutServlet保留的关键字，Velocity依此关键字来潜入实际被 引用的页面内容
+    $screen_content
+</body>
+</html>
