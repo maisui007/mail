@@ -8,7 +8,7 @@
     <!--使用注解-->
     <mvc:annotation-driven/>
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="com.mail" />
+    <context:component-scan base-package="com" />
 
     <!--&lt;!&ndash; 定义跳转的文件的前后缀 ，视图模式配置&ndash;&gt;-->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
@@ -45,5 +45,10 @@
         <property name="maxUploadSize" value="10485760000" />
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
+    </bean>
+    <!-- 只是加上前缀、后缀，而不进行视图解析 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/" />
+        <property name="suffix" value=".vm" />
     </bean>
 </beans>

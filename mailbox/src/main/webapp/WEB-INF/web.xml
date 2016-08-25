@@ -3,11 +3,24 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-<display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-config.xml</param-value>
     </context-param>
+    <!-- sitemesh配置bein -->
+    <filter>
+        <filter-name>site-mesh</filter-name>
+        <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>site-mesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- sitemesh配置end -->
+
+
     <!--编码过滤器begin-->
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -52,6 +65,20 @@
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- sitemesh servlet配置begin -->
+    <servlet>
+        <servlet-name>site-mesh-velocity</servlet-name>
+        <servlet-class>com.opensymphony.module.sitemesh.velocity.VelocityDecoratorServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>site-mesh-velocity</servlet-name>
+        <url-pattern>*.vm</url-pattern>
+    </servlet-mapping>
+    <!-- sitemesh servlet配置end -->
+
+
     <welcome-file-list>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>

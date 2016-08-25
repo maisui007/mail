@@ -1,3 +1,3 @@
-#set($page_title="Layout Test")
-Hello Velocity Layout!
-$sims.data();
+<script language="javascript">
+    window.location.href="userList.do";
+</script>
