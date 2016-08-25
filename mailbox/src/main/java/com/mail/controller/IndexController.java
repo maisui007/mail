@@ -29,7 +29,7 @@ public class IndexController {
     @RequestMapping("/")
     public String mailIndex(){
         System.out.println("根据servlet,[mailIndex()]决定跳转到哪种视图");
-        return "index";
+        return "index.....";
 
     }
 }

@@ -88,6 +88,7 @@
     </error-page>
     <error-page>
         <error-code>500</error-code>
+        <!--<location>/WEB-INF/index.jsp</location>-->
         <location>/WEB-INF/www/500.vm</location>
     </error-page>
     <!-- Spring MVC servlet end -->
