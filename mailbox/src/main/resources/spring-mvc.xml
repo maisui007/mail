@@ -47,8 +47,8 @@
         <property name="maxInMemorySize" value="40960" />
     </bean>
     <!-- 只是加上前缀、后缀，而不进行视图解析 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/" />
-        <property name="suffix" value=".vm" />
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/WEB-INF/" />-->
+        <!--<property name="suffix" value=".jsp" />-->
+    <!--</bean>-->
 </beans>
