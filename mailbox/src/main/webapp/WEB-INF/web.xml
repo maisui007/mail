@@ -84,12 +84,12 @@
     </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/www/404.vm</location>
+        <location>/404</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
         <!--<location>/WEB-INF/index.jsp</location>-->
-        <location>/WEB-INF/www/500.vm</location>
+        <location>/500</location>
     </error-page>
     <!-- Spring MVC servlet end -->
 </web-app>

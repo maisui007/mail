@@ -1,0 +1,114 @@
+http://www.cnblogs.com/yjmyzz/p/4462019.html
+
+一、404错误、500错误
+
+复制代码
+1     <error-page>
+2         <error-code>404</error-code>
+3         <location>/nopage.do</location>
+4     </error-page>
+5
+6     <error-page>
+7         <error-code>500</error-code>
+8         <location>/error.do</location>
+9     </error-page>
+复制代码
+web.xml中添加这二项，注意locatoion节点，不再是指定成物理文件路径，而是Spring MVC中Controller里具体方法映射的URI
+
+复制代码
+1     @RequestMapping(value = "/nopage.do", method = RequestMethod.GET)
+2     public String pageNotFound(Locale locale, Model model) throws Exception {
+3         return "errors/404";
+4     }
+5
+6     @RequestMapping(value = "/error.do", method = RequestMethod.GET)
+7     public String innerError(Locale locale, Model model) throws Exception {
+8         return "errors/500";
+9     }
+复制代码
+上面是Controller的处理
+
+
+
+二、常规异常的处理
+
+Controller里的处理还是跟以前一样，关键是errors/error.vm这个模板文件如何写：
+
+复制代码
+ 1 <!doctype html>
+ 2 <html>
+ 3 <head>
+ 4     #parse("comm/header.vm")
+ 5     #set($ex=$request.getAttribute("ex"))
+ 6     <title>ERROR</title>
+ 7 </head>
+ 8 <body style="margin:20px">
+ 9 <H2>
+10     错误：$ex.class.simpleName
+11 </H2>
+12 <hr/>
+13 <P>
+14     <strong>错误描述：</strong>$ex.message
+15 </P>
+16
+17 <P>
+18     <strong>详细信息：</strong>
+19 </P>
+20     <pre>
+21 #foreach($stack in $ex.getStackTrace())
+22     $stack.toString()
+23 #end
+24     </pre>
+25 </body>
+26 </html>
+复制代码
+注意：5、10、21-23这几行
+
+
+
+三、ajax异常的处理
+
+这里要在BaseController里直接返回json字符串，参考下面的代码：
+
+复制代码
+ 1    @ExceptionHandler
+ 2     public String exp(HttpServletRequest request, HttpServletResponse response, Exception ex) throws Exception {
+ 3         String resultViewName = "errors/error";
+ 4
+ 5         // 记录日志
+ 6         logger.error(ex.getMessage(), ex);
+ 7
+ 8         // 根据不同错误转向不同页面
+ 9         if (ex instanceof BusinessException) {
+10             resultViewName = "errors/biz-error";
+11         } else {
+12             // 异常转换
+13             //ex = new Exception("服务器忙，请稍候重试！");
+14         }
+15
+16         String xRequestedWith = request.getHeader("X-Requested-With");
+17         if (!StringUtils.isEmpty(xRequestedWith)) {
+18             // ajax请求
+19             ResponseUtil.OutputJson(response, "{\"error\":\"" + ex.getClass().getSimpleName() + "\",\"detail\":\"" + ex.getMessage() + "\"}");
+20         }
+21         request.setAttribute("ex", ex);
+22         return resultViewName;
+23     }
+复制代码
+关键点有2个，方法签名里增加HttpServletResponse response，然后19行，直接输出Json字符串，其中用到了一个ResponseUtil类，该类的主要代码如下：
+
+复制代码
+ 1     public static void OutputContent(HttpServletResponse response,
+ 2             String contentType, String content) throws IOException {
+ 3         response.setContentType(contentType + ";charset=utf-8");
+ 4         response.setCharacterEncoding("UTF-8");
+ 5         PrintWriter out = response.getWriter();
+ 6         out.println(content);
+ 7         out.flush();
+ 8         out.close();
+ 9     }
+10
+11     public static void OutputJson(HttpServletResponse response, String content)
+12             throws IOException {
+13         OutputContent(response, "application/json", content);
+14     }
