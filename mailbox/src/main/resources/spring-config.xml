@@ -6,8 +6,20 @@
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--<property name="location" value="classpath:jdbc.properties" />-->
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:mail.properties</value>
+                <!--<value>classpath:velocity.properties</value>-->
+            </list>
+        </property>
+    </bean>
     <import resource="spring-mvc.xml"/>
-    <import resource="velocity.xml"/>
+    <!--<import resource="velocity.xml"/>-->
+    <import resource="mailCofig.xml"/>
+
 
 </beans>

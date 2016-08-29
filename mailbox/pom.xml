@@ -20,7 +20,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
@@ -227,6 +227,15 @@
           <path>/mail</path>
           <port>8080</port>
           <!--<contextFile>${project.basedir}/src/main/resources/context.xml</contextFile>-->
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18.1</version>
+        <configuration>
+          <skipTests>false</skipTests>
         </configuration>
       </plugin>
 

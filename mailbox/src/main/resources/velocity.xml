@@ -8,8 +8,8 @@
     <bean id="velocityConfigurer"
           class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/WEB-INF/layout/" /><!-- 模板存放的路径 -->
-        <!--<property name="configLocation" value="classpath:velocity.properties" />&lt;!&ndash;resource路径下的引用方式&ndash;&gt;-->
-        <property name="configLocation" value="/WEB-INF/conf/velocity.properties" />
+        <property name="configLocation" value="classpath:velocity.properties" /><!--resource路径下的引用方式-->
+        <!--<property name="configLocation" value="/WEB-INF/conf/velocity.properties" />-->
         <!--<property name="velocityProperties">-->
             <!--<props>-->
                 <!--<prop key="input.encoding">UTF-8</prop>-->
