@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="mailbox:war">
-    <output-path>$PROJECT_DIR$/mailbox/target</output-path>
-    <root id="archive" name="mail.war">
-      <element id="artifact" artifact-name="mailbox:war exploded" />
-    </root>
-  </artifact>
-</component>
