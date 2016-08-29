@@ -19,7 +19,7 @@
     </bean>
     <import resource="spring-mvc.xml"/>
     <!--<import resource="velocity.xml"/>-->
-    <import resource="mailCofig.xml"/>
+    <import resource="mailConfig.xml"/>
 
 
 </beans>

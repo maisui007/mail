@@ -30,7 +30,7 @@ public class MailTest {
         mailSender.setTemplateName("mail.vm");//设置的邮件模板
         Map model=new HashMap();
         model.put("username", "junm.zhang");
-        String url="";
+        String url="www.baidu.com";
 //        url=url.substring(0, url.lastIndexOf("/"));
         model.put("url", url);
         model.put("email", "zhangjnming@163.com");
