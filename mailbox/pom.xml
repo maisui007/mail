@@ -218,6 +218,24 @@
 
   <build>
     <finalName>mail</finalName>
+    <!--<resources>-->
+      <!--<resource>-->
+        <!--<directory>src/main/resources</directory>-->
+        <!--<includes>-->
+          <!--<include>**/*.properties</include>-->
+          <!--&lt;!&ndash;<include>**/*.xml</include>&ndash;&gt;-->
+        <!--</includes>-->
+        <!--<filtering>false</filtering>-->
+      <!--</resource>-->
+      <!--<resource>-->
+        <!--<directory>src/test/main/resources</directory>-->
+        <!--<includes>-->
+          <!--<include>**/*.properties</include>-->
+          <!--&lt;!&ndash;<include>**/*.xml</include>&ndash;&gt;-->
+        <!--</includes>-->
+        <!--<filtering>false</filtering>-->
+      <!--</resource>-->
+    <!--</resources>-->
     <plugins>
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
