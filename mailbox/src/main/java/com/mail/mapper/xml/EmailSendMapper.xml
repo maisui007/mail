@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mail.mapper.EmailSendMapper">
+  <resultMap id="BaseResultMap" type="com.mail.model.EmailSend">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="RECEIVERS" jdbcType="VARCHAR" property="RECEIVERS" />
+    <result column="PRIORITY" jdbcType="INTEGER" property="PRIORITY" />
+    <result column="TEMPLATE" jdbcType="VARCHAR" property="TEMPLATE" />
+    <result column="CONTET" jdbcType="VARCHAR" property="CONTET" />
+    <result column="SEND_DATE" jdbcType="TIMESTAMP" property="SEND_DATE" />
+    <result column="STATUS" jdbcType="VARCHAR" property="STATUS" />
+    <result column="CREAED_TS" jdbcType="TIMESTAMP" property="CREAED_TS" />
+    <result column="LAST_UPDATE_TS" jdbcType="TIMESTAMP" property="LAST_UPDATE_TS" />
+    <result column="REMARK1" jdbcType="VARCHAR" property="REMARK1" />
+    <result column="REMARK2" jdbcType="VARCHAR" property="REMARK2" />
+    <result column="SORT" jdbcType="BIGINT" property="SORT" />
+    <result column="VERSION" jdbcType="INTEGER" property="VERSION" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RECEIVERS, PRIORITY, TEMPLATE, CONTET, SEND_DATE, STATUS, CREAED_TS, LAST_UPDATE_TS, 
+    REMARK1, REMARK2, SORT, VERSION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_email_send
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_email_send
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mail.model.EmailSend">
+    insert into tb_email_send (ID, RECEIVERS, PRIORITY, 
+      TEMPLATE, CONTET, SEND_DATE, 
+      STATUS, CREAED_TS, LAST_UPDATE_TS, 
+      REMARK1, REMARK2, SORT, 
+      VERSION)
+    values (#{ID,jdbcType=VARCHAR}, #{RECEIVERS,jdbcType=VARCHAR}, #{PRIORITY,jdbcType=INTEGER}, 
+      #{TEMPLATE,jdbcType=VARCHAR}, #{CONTET,jdbcType=VARCHAR}, #{SEND_DATE,jdbcType=TIMESTAMP}, 
+      #{STATUS,jdbcType=VARCHAR}, #{CREAED_TS,jdbcType=TIMESTAMP}, #{LAST_UPDATE_TS,jdbcType=TIMESTAMP}, 
+      #{REMARK1,jdbcType=VARCHAR}, #{REMARK2,jdbcType=VARCHAR}, #{SORT,jdbcType=BIGINT}, 
+      #{VERSION,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mail.model.EmailSend">
+    insert into tb_email_send
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="RECEIVERS != null">
+        RECEIVERS,
+      </if>
+      <if test="PRIORITY != null">
+        PRIORITY,
+      </if>
+      <if test="TEMPLATE != null">
+        TEMPLATE,
+      </if>
+      <if test="CONTET != null">
+        CONTET,
+      </if>
+      <if test="SEND_DATE != null">
+        SEND_DATE,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+      <if test="CREAED_TS != null">
+        CREAED_TS,
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        LAST_UPDATE_TS,
+      </if>
+      <if test="REMARK1 != null">
+        REMARK1,
+      </if>
+      <if test="REMARK2 != null">
+        REMARK2,
+      </if>
+      <if test="SORT != null">
+        SORT,
+      </if>
+      <if test="VERSION != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="RECEIVERS != null">
+        #{RECEIVERS,jdbcType=VARCHAR},
+      </if>
+      <if test="PRIORITY != null">
+        #{PRIORITY,jdbcType=INTEGER},
+      </if>
+      <if test="TEMPLATE != null">
+        #{TEMPLATE,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTET != null">
+        #{CONTET,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_DATE != null">
+        #{SEND_DATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="CREAED_TS != null">
+        #{CREAED_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK1 != null">
+        #{REMARK1,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK2 != null">
+        #{REMARK2,jdbcType=VARCHAR},
+      </if>
+      <if test="SORT != null">
+        #{SORT,jdbcType=BIGINT},
+      </if>
+      <if test="VERSION != null">
+        #{VERSION,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mail.model.EmailSend">
+    update tb_email_send
+    <set>
+      <if test="RECEIVERS != null">
+        RECEIVERS = #{RECEIVERS,jdbcType=VARCHAR},
+      </if>
+      <if test="PRIORITY != null">
+        PRIORITY = #{PRIORITY,jdbcType=INTEGER},
+      </if>
+      <if test="TEMPLATE != null">
+        TEMPLATE = #{TEMPLATE,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTET != null">
+        CONTET = #{CONTET,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_DATE != null">
+        SEND_DATE = #{SEND_DATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="CREAED_TS != null">
+        CREAED_TS = #{CREAED_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        LAST_UPDATE_TS = #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK1 != null">
+        REMARK1 = #{REMARK1,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK2 != null">
+        REMARK2 = #{REMARK2,jdbcType=VARCHAR},
+      </if>
+      <if test="SORT != null">
+        SORT = #{SORT,jdbcType=BIGINT},
+      </if>
+      <if test="VERSION != null">
+        VERSION = #{VERSION,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mail.model.EmailSend">
+    update tb_email_send
+    set RECEIVERS = #{RECEIVERS,jdbcType=VARCHAR},
+      PRIORITY = #{PRIORITY,jdbcType=INTEGER},
+      TEMPLATE = #{TEMPLATE,jdbcType=VARCHAR},
+      CONTET = #{CONTET,jdbcType=VARCHAR},
+      SEND_DATE = #{SEND_DATE,jdbcType=TIMESTAMP},
+      STATUS = #{STATUS,jdbcType=VARCHAR},
+      CREAED_TS = #{CREAED_TS,jdbcType=TIMESTAMP},
+      LAST_UPDATE_TS = #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      REMARK1 = #{REMARK1,jdbcType=VARCHAR},
+      REMARK2 = #{REMARK2,jdbcType=VARCHAR},
+      SORT = #{SORT,jdbcType=BIGINT},
+      VERSION = #{VERSION,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.mail.model.EmailSend">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="RECEIVERS" jdbcType="VARCHAR" property="RECEIVERS" />
+    <result column="PRIORITY" jdbcType="INTEGER" property="PRIORITY" />
+    <result column="TEMPLATE" jdbcType="VARCHAR" property="TEMPLATE" />
+    <result column="CONTET" jdbcType="VARCHAR" property="CONTET" />
+    <result column="SEND_DATE" jdbcType="TIMESTAMP" property="SEND_DATE" />
+    <result column="STATUS" jdbcType="VARCHAR" property="STATUS" />
+    <result column="CREAED_TS" jdbcType="TIMESTAMP" property="CREAED_TS" />
+    <result column="LAST_UPDATE_TS" jdbcType="TIMESTAMP" property="LAST_UPDATE_TS" />
+    <result column="REMARK1" jdbcType="VARCHAR" property="REMARK1" />
+    <result column="REMARK2" jdbcType="VARCHAR" property="REMARK2" />
+    <result column="VERSION" jdbcType="INTEGER" property="VERSION" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RECEIVERS, PRIORITY, TEMPLATE, CONTET, SEND_DATE, STATUS, CREAED_TS, LAST_UPDATE_TS, 
+    REMARK1, REMARK2, VERSION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_email_send
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_email_send
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mail.model.EmailSend">
+    insert into tb_email_send (ID, RECEIVERS, PRIORITY, 
+      TEMPLATE, CONTET, SEND_DATE, 
+      STATUS, CREAED_TS, LAST_UPDATE_TS, 
+      REMARK1, REMARK2, VERSION
+      )
+    values (#{ID,jdbcType=INTEGER}, #{RECEIVERS,jdbcType=VARCHAR}, #{PRIORITY,jdbcType=INTEGER}, 
+      #{TEMPLATE,jdbcType=VARCHAR}, #{CONTET,jdbcType=VARCHAR}, #{SEND_DATE,jdbcType=TIMESTAMP}, 
+      #{STATUS,jdbcType=VARCHAR}, #{CREAED_TS,jdbcType=TIMESTAMP}, #{LAST_UPDATE_TS,jdbcType=TIMESTAMP}, 
+      #{REMARK1,jdbcType=VARCHAR}, #{REMARK2,jdbcType=VARCHAR}, #{VERSION,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mail.model.EmailSend">
+    insert into tb_email_send
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="RECEIVERS != null">
+        RECEIVERS,
+      </if>
+      <if test="PRIORITY != null">
+        PRIORITY,
+      </if>
+      <if test="TEMPLATE != null">
+        TEMPLATE,
+      </if>
+      <if test="CONTET != null">
+        CONTET,
+      </if>
+      <if test="SEND_DATE != null">
+        SEND_DATE,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+      <if test="CREAED_TS != null">
+        CREAED_TS,
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        LAST_UPDATE_TS,
+      </if>
+      <if test="REMARK1 != null">
+        REMARK1,
+      </if>
+      <if test="REMARK2 != null">
+        REMARK2,
+      </if>
+      <if test="VERSION != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="RECEIVERS != null">
+        #{RECEIVERS,jdbcType=VARCHAR},
+      </if>
+      <if test="PRIORITY != null">
+        #{PRIORITY,jdbcType=INTEGER},
+      </if>
+      <if test="TEMPLATE != null">
+        #{TEMPLATE,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTET != null">
+        #{CONTET,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_DATE != null">
+        #{SEND_DATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="CREAED_TS != null">
+        #{CREAED_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK1 != null">
+        #{REMARK1,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK2 != null">
+        #{REMARK2,jdbcType=VARCHAR},
+      </if>
+      <if test="VERSION != null">
+        #{VERSION,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mail.model.EmailSend">
+    update tb_email_send
+    <set>
+      <if test="RECEIVERS != null">
+        RECEIVERS = #{RECEIVERS,jdbcType=VARCHAR},
+      </if>
+      <if test="PRIORITY != null">
+        PRIORITY = #{PRIORITY,jdbcType=INTEGER},
+      </if>
+      <if test="TEMPLATE != null">
+        TEMPLATE = #{TEMPLATE,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTET != null">
+        CONTET = #{CONTET,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_DATE != null">
+        SEND_DATE = #{SEND_DATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="CREAED_TS != null">
+        CREAED_TS = #{CREAED_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="LAST_UPDATE_TS != null">
+        LAST_UPDATE_TS = #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK1 != null">
+        REMARK1 = #{REMARK1,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK2 != null">
+        REMARK2 = #{REMARK2,jdbcType=VARCHAR},
+      </if>
+      <if test="VERSION != null">
+        VERSION = #{VERSION,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mail.model.EmailSend">
+    update tb_email_send
+    set RECEIVERS = #{RECEIVERS,jdbcType=VARCHAR},
+      PRIORITY = #{PRIORITY,jdbcType=INTEGER},
+      TEMPLATE = #{TEMPLATE,jdbcType=VARCHAR},
+      CONTET = #{CONTET,jdbcType=VARCHAR},
+      SEND_DATE = #{SEND_DATE,jdbcType=TIMESTAMP},
+      STATUS = #{STATUS,jdbcType=VARCHAR},
+      CREAED_TS = #{CREAED_TS,jdbcType=TIMESTAMP},
+      LAST_UPDATE_TS = #{LAST_UPDATE_TS,jdbcType=TIMESTAMP},
+      REMARK1 = #{REMARK1,jdbcType=VARCHAR},
+      REMARK2 = #{REMARK2,jdbcType=VARCHAR},
+      VERSION = #{VERSION,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>
