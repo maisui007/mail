@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style="color:#000;background:#FFF;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>xxxxx支付</title>
+	<meta name="Author" content="" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+</head>
+<body style="font:12px/1.5 tahoma,arial,Hiragino Sans GB,\5b8b\4f53;">
+	<div style="margin:20px auto;padding:0px 47px;">
+		<div style="zoom:1;">
+			<img src="$!{replacethistotheLogoAddr}/images/logo_emailIform.png" style="float:left"/>
+			<div style="float:right">
+				<a href="http://www.hnapay.com" target="_blank" style="margin-right:30px;">xxxxx支付首页</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://portal.hnapay.com/helpCenter/gr-xs-1.jsp" target="_blank">帮助中心</a>
+			</div>
+			<div style="padding-bottom:30px;clear:both">
+		</div>
+		<ul>
+			<li style="list-style:none;padding-bottom:30px;margin-left:-30px">亲爱的用户：$!{replacethistotheUSERNAME}，您好！</li>
+			<li style="list-style:none;padding-bottom:30px;">您于$!{replacethistotheDateTime} <span style="color:red;">重置xxxxx账户支付密码成功</span>，请使用新的支付密码进行相关支付操作</li>
+			<li style="list-style:none;padding-bottom:30px;">如重置支付密码不是由您本人操作，请联系xxxxx客户服务人员</li>
+			<li style="list-style:none;padding-bottom:30px;">如您有任何其它使用上的问题都可以进入xxxxx帮助中心获得更多信息</li>
+			<li style="list-style:none;margin-left:-30px">安全小贴士</li>
+			<li>xxxxx不会要求您在电子邮件中输入密码</li>
+			<li>请您不要将xxxxx密码提供给任何人，包括xxxxx员工</li>
+			<li><span class="gray">本邮件由xxxxx系统自动发出，请勿直接回复</span></li>
+			<li><span class="gray">如果您有任何疑问或建议，请随时拨打xxxxx客服热线：400-089-0098或联系xxxxx邮箱：XS-kefu@hnair.com</span></li>
+			<li style="list-style:none;"><span style="color:gray;">Copyright © Hainan New Generation Technology Company Limited xxxxx支付版权所有2004-2016</span></li>
+			<li style="list-style:none;"><span style="color:gray;">增值电信业务经营许可证：琼B2-20110013 琼ICP备11000638号-4</span></li>
+		</ul>
+	</div>
+</body>
+
+</html>

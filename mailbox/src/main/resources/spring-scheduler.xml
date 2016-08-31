@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="sendMailProcessJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+              <property name="targetObject" ref="sendMailProcessJob" />
+              <property name="targetMethod" value="execute" />
+       </bean>
+
+       <bean id="sendMailProcessJob" class="com.javamail.scheduler.SendMailProcessJob" >
+              <property name="jobScopeFlag" value="${jobScopeFlag}"></property>
+              <property name=" mailQueryCount " value="${ mailQueryCount }"></property>
+       </bean>
+       <bean id="sendMailProcessJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+              <property name="jobDetail" ref="sendMailProcessJobDetail" />
+              <property name="cronExpression">
+                     <value>0 */2 * * * ?</value>
+              </property>
+       </bean>
+</beans>

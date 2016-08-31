@@ -211,30 +211,24 @@
     <!--</dependency>-->
 
   </dependencies>
-
-
-
-
-
   <build>
     <finalName>mail</finalName>
+
     <!--<resources>-->
-      <!--<resource>-->
-        <!--<directory>src/main/resources</directory>-->
-        <!--<includes>-->
-          <!--<include>**/*.properties</include>-->
-          <!--&lt;!&ndash;<include>**/*.xml</include>&ndash;&gt;-->
-        <!--</includes>-->
-        <!--<filtering>false</filtering>-->
-      <!--</resource>-->
-      <!--<resource>-->
-        <!--<directory>src/test/main/resources</directory>-->
-        <!--<includes>-->
-          <!--<include>**/*.properties</include>-->
-          <!--&lt;!&ndash;<include>**/*.xml</include>&ndash;&gt;-->
-        <!--</includes>-->
-        <!--<filtering>false</filtering>-->
-      <!--</resource>-->
+    <!--<resource>-->
+    <!--<directory>src/main/resources</directory>-->
+    <!--<filtering>true</filtering>-->
+    <!--<includes>-->
+    <!--<include>**/*.properties</include>-->
+    <!--</includes>-->
+    <!--</resource>-->
+    <!--<resource>-->
+    <!--<directory>src/main/resources</directory>-->
+    <!--<filtering>true</filtering>-->
+    <!--<includes>-->
+    <!--<include>**/*.xml</include>-->
+    <!--</includes>-->
+    <!--</resource>-->
     <!--</resources>-->
     <plugins>
       <plugin>
@@ -248,16 +242,111 @@
         </configuration>
       </plugin>
 
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-surefire-plugin</artifactId>-->
+      <!--<version>2.18.1</version>-->
+      <!--<configuration>-->
+      <!--<skipTests>false</skipTests>-->
+      <!--</configuration>-->
+      <!--</plugin>-->
+      <!--[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
         <configuration>
-          <skipTests>false</skipTests>
+          <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+          <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+          <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0-alpha-1</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>src/java/resources/*.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>
   </build>
 
+
+
+
+
+<profiles>
+  <profile>
+    <id>local</id>
+    <!--<properties>-->
+      <!--<param>*</param>-->
+    <!--</properties>-->
+    <build>
+      <finalName>mail</finalName>
+
+      <!--<resources>-->
+      <!--<resource>-->
+      <!--<directory>src/main/resources</directory>-->
+      <!--<filtering>true</filtering>-->
+      <!--<includes>-->
+      <!--<include>**/*.properties</include>-->
+      <!--</includes>-->
+      <!--</resource>-->
+      <!--<resource>-->
+      <!--<directory>src/main/resources</directory>-->
+      <!--<filtering>true</filtering>-->
+      <!--<includes>-->
+      <!--<include>**/*.xml</include>-->
+      <!--</includes>-->
+      <!--</resource>-->
+      <!--</resources>-->
+      <plugins>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <path>/mail</path>
+            <port>8080</port>
+            <!--<contextFile>${project.basedir}/src/main/resources/context.xml</contextFile>-->
+          </configuration>
+        </plugin>
+
+        <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-surefire-plugin</artifactId>-->
+        <!--<version>2.18.1</version>-->
+        <!--<configuration>-->
+        <!--<skipTests>false</skipTests>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.1.1</version>
+          <configuration>
+            <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+            <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+            <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </build>
+  </profile>
+</profiles>
 </project>

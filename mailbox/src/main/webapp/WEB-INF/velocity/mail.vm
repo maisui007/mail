@@ -1,0 +1,12 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		$!{username} 你好,测试邮件，测试一下
+		<ul>
+		<li >亲爱的用户：$!{username}，您好！</li>
+		<li >确认您的地址：$!{addres}，是否有误！</li>
+		</ul>
+	</body>
+</html>

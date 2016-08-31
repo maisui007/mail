@@ -1,0 +1,130 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd   
+    http://www.springframework.org/schema/context    
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+       default-autowire="byName">
+
+       <bean id="mailSender1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+              <property name="host" value="${mail1.host}" />
+              <property name="port" value="${mail1.port}" />
+              <property name="username" value="${mail1.username}" />
+              <property name="password" value="${mail1.password}" />
+              <property name="javaMailProperties">
+                     <props>
+                            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                            <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <bean id="mailSender2" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+              <property name="host" value="${mail2.host}" />
+              <property name="port" value="${mail2.port}" />
+              <property name="username" value="${mail2.username}" />
+              <property name="password" value="${mail2.password}" />
+              <property name="javaMailProperties">
+                     <props>
+                            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                            <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <bean id="mailSender3" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+              <property name="host" value="${mail3.host}" />
+              <property name="port" value="${mail3.port}" />
+              <property name="username" value="${mail3.username}" />
+              <property name="password" value="${mail3.password}" />
+              <property name="javaMailProperties">
+                     <props>
+                            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                            <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <bean id="mailSender4" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+              <property name="host" value="${mail4.host}" />
+              <property name="port" value="${mail4.port}" />
+              <property name="username" value="${mail4.username}" />
+              <property name="password" value="${mail4.password}" />
+              <property name="javaMailProperties">
+                     <props>
+                            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                            <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <bean id="mailSender5" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+              <property name="host" value="${mail5.host}" />
+              <property name="port" value="${mail5.port}" />
+              <property name="username" value="${mail5.username}" />
+              <property name="password" value="${mail5.password}" />
+              <property name="javaMailProperties">
+                     <props>
+                            <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                            <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+                     </props>
+              </property>
+       </bean>
+
+       <!-- 邮件发送引擎 -->
+       <bean id="mailEngine" class="com.javamail.engine.MailEngine">
+              <property name="subject" value="${mail.default.subject}" />
+              <!-- 		<property name="vmName" value="${mail.default.vm}" /> -->
+       </bean>
+
+       <bean id="mailSenderMap" class="java.util.HashMap">
+              <constructor-arg>
+                     <map>
+                            <entry key="0">
+                                   <ref bean="mailSender1"/>
+                            </entry>
+                            <entry key="1">
+                                   <ref bean="mailSender2"/>
+                            </entry>
+                            <entry key="2">
+                                   <ref bean="mailSender3"/>
+                            </entry>
+                            <entry key="3">
+                                   <ref bean="mailSender4"/>
+                            </entry>
+                            <entry key="4">
+                                   <ref bean="mailSender5"/>
+                            </entry>
+                     </map>
+              </constructor-arg>
+       </bean>
+
+       <bean id="senderMap" class="java.util.HashMap">
+              <constructor-arg>
+                     <map>
+                            <entry key="0" value="${mail1.sender}" />
+                            <entry key="1" value="${mail2.sender}" />
+                            <entry key="2" value="${mail3.sender}" />
+                            <entry key="3" value="${mail4.sender}" />
+                            <entry key="4" value="${mail5.sender}" />
+                     </map>
+              </constructor-arg>
+       </bean>
+
+       <bean id="mailSubjectConfig" class="java.util.HashMap">
+              <constructor-arg>
+                     <map>
+                            <entry key="mail" value="${mail.subject.mail}" />
+                            <entry key="mail" value="${xs}" />
+                            <entry key="restPayPwdCode" value="${mail.subject.restPayPwdCode}" />
+                            <entry key="restPayPwdSuccess" value="${mail.subject.restPayPwdSuccess}" />
+
+                     </map>
+              </constructor-arg>
+       </bean>
+
+</beans>
